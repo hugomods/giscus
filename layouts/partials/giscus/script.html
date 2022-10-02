@@ -1,0 +1,38 @@
+{{- with .Site.Params.giscus }}
+  {{- if or (not .repo) (not .category) (not .categoryId) }}
+    {{- errorf "[giscus] both of repo, category and categoryId are required." }}
+  {{- end }}
+  {{- $repoId := .repoId }}
+  {{/* Fetch repo ID from GitHub REST API if omitted. */}}
+  {{- if not $repoId }}
+    {{- $repoId = partialCached "giscus/repo-id" .repo .repo }}
+  {{- end }}
+  {{/* Fetch repo ID from GitHub REST API if omitted. */}}
+  {{- $langsMapping := dict
+    "en-us" "en"
+    "zh-cn" "zh-CN"
+    "zh-tw" "zh-TW"
+    "zh-hk" "zh-TW"
+    "zh-hans" "zh-CN"
+    "zh-hant" "zh-TW"
+  -}}
+  {{- $langsMapping = merge $langsMapping .languagesMapping }}
+  {{- $lang := default $.Site.Language.Lang }}
+  {{- with index $langsMapping $lang }}{{ $lang = . }}{{ end }}
+  <script
+    src="{{ .endpoint | strings.TrimSuffix "/" }}/client.js"
+    data-repo="{{ .repo }}"
+    data-repo-id="{{ $repoId }}"
+    data-category="{{ .category }}"
+    data-category-id="{{ .categoryId }}"
+    data-mapping="{{ .mapping }}"
+    data-reactions-enabled="{{ cond .reactions "1" "0" }}"
+    data-input-position="{{ .inputPosition }}"
+    data-theme="{{ .theme }}"
+    data-lang="{{ $lang }}"
+    {{ with default true .lazyLoading }}data-loading="lazy"{{ end }}
+    {{ with default true .strictMatching }}data-strict="1"{{ end }}
+    crossorigin="anonymous"
+    async
+  ></script>
+{{- end }}

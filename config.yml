@@ -1,0 +1,80 @@
+module:
+  hugoVersion:
+    extended: true
+
+params:
+  # The repoId and categoryId can be fetched on https://giscus.app/.
+  giscus:
+    # Client script endpoint.
+    endpoint: https://giscus.app/
+
+    # The GitHub repository, required.
+    repo: ""
+    # The GitHub repository ID, optional. We'll fetch the repo ID by GitHub REST API if omitted.
+    # It's recommend to specify it to save the build time.
+    repoId: ""
+
+    # Discussion category, required.
+    category: General
+    # Discussion category ID, required, since GitHub doesn't provide REST API for discussions.
+    categoryId: ""
+
+    # The mapping between the embedding page and the embedded discussion. Available options:
+    #   pathname: giscus will search for a discussion whose title contains the page's pathname URL component.
+    #   URL:      giscus will search for a discussion whose title contains the page's URL.
+    #   title:    giscus will search for a discussion whose title contains the page's <title> HTML tag.
+    #   og:title: giscus will search for a discussion whose title contains the page's <meta property="og:title"> HTML tag.
+    mapping: pathname
+
+    # Use strict title matching, avoid mismatches due to GitHub's fuzzy searching method when there are multiple discussions with similar titles.
+    strictMatching: true
+
+    # Theme. Available options:
+    #   light:                  GitHub Light.
+    #   light_high_contrast:    GitHub Light High Contrast.
+    #   light_protanopia:       GitHub Light Protanopia & Deuteranopia.
+    #   light_tritanopia:       GitHub Light Tritanopia.
+    #   dark:                   GitHub Dark.
+    #   dark_high_contrast:     GitHub Dark High Contrast.
+    #   dark_protanopia:        GitHub Dark Protanopia & Deuteranopia.
+    #   dark_tritanopia:        GitHub Dark Tritanopia.
+    #   dark_dimmed:            GitHub Dark Dimmed.
+    #   transparent_dark:       Transparent Dark.
+    #   preferred_color_scheme: Preferred color scheme.
+    #   an URL of external CSS. It may be unsafe, make sure you trust the author and provider of the CSS file.
+    theme: preferred_color_scheme
+
+    # The input position. Available options:
+    #   top:    above the comments.
+    #   bottom: below the comments.
+    inputPosition: top
+
+    # Enable reactions for the main post.
+    reactions: true
+
+    # Load the comments lazily.
+    lazyLoading: true
+
+    # The languages mapping from site language to Giscus language.
+    # Since the Giscus doesn't support all languages and the language is case sensitive.
+    # Available languages:
+    #  - ar
+    #  - de
+    #  - gsw
+    #  - es
+    #  - en
+    #  - fr
+    #  - id
+    #  - it
+    #  - ja
+    #  - ko
+    #  - pl
+    #  - pt
+    #  - ro
+    #  - ru
+    #  - tr
+    #  - vi
+    #  - zh-CN
+    #  - zh-TW
+    languagesMapping:
+      en-us: en
