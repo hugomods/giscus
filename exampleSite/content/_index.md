@@ -1,3 +1,3 @@
 ---
-title: Hugo Font Awesome SVG JS Module
+title: Hugo Giscus Module
 ---
