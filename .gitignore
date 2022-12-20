@@ -3,3 +3,4 @@ public/
 node_modules/
 resources/
 assets/jsconfig.json
+package-lock.json
