@@ -1,17 +1,15 @@
 title = "Hugo Giscus Module"
-theme = [
-    "github.com/razonyang/hugo-mod-giscus"
-]
+theme = ["github.com/razonyang/hugo-mod-giscus"]
 [languages]
-  [languages.en]
-    weight = 1
-    languageName = "English"
-  [languages.zh-hans]
-    weight = 2
-    languageName = "简体中文"
+[languages.en]
+weight = 1
+languageName = "English"
+[languages.zh-hans]
+weight = 2
+languageName = "简体中文"
 
 [params]
-  [params.giscus]
-    repo = "razonyang/hugo-mod-giscus"
-    category = "General"
-    categoryId = "DIC_kwDOIHBHM84CRvnM"
+[params.blog.giscus]
+repo = "razonyang/hugo-mod-giscus"
+category = "General"
+category_id = "DIC_kwDOIHBHM84CRvnM"

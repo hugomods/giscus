@@ -12,12 +12,12 @@ params:
     repo: ""
     # The GitHub repository ID, optional. We'll fetch the repo ID by GitHub REST API if omitted.
     # It's recommend to specify it to save the build time.
-    repoId: ""
+    repo_id: ""
 
     # Discussion category, required.
     category: General
     # Discussion category ID, required, since GitHub doesn't provide REST API for discussions.
-    categoryId: ""
+    category_id: ""
 
     # The mapping between the embedding page and the embedded discussion. Available options:
     #   pathname: giscus will search for a discussion whose title contains the page's pathname URL component.
@@ -27,7 +27,7 @@ params:
     mapping: pathname
 
     # Use strict title matching, avoid mismatches due to GitHub's fuzzy searching method when there are multiple discussions with similar titles.
-    strictMatching: true
+    strict_matching: true
 
     # Theme. Available options:
     #   light:                  GitHub Light.
@@ -47,13 +47,13 @@ params:
     # The input position. Available options:
     #   top:    above the comments.
     #   bottom: below the comments.
-    inputPosition: top
+    input_position: top
 
     # Enable reactions for the main post.
     reactions: true
 
     # Load the comments lazily.
-    lazyLoading: true
+    lazy_loading: true
 
     # The languages mapping from site language to Giscus language.
     # Since the Giscus doesn't support all languages and the language is case sensitive.
@@ -76,5 +76,5 @@ params:
     #  - vi
     #  - zh-CN
     #  - zh-TW
-    languagesMapping:
+    languages_mapping:
       en-us: en
