@@ -45,8 +45,9 @@
       </select>
     </div>
     <h2>Comments</h2>
-    <div>
-      {{ partial "giscus/script" . }}
-    </div>
+    <hr />
+    <div class="giscus"></div>
+    <hr />
+    {{ partial "giscus/script-with-options" .Site.Params.blog.giscus }}
   </body>
 </html>
