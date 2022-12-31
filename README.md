@@ -79,7 +79,7 @@ You may want to change the Giscus theme on the fly, a common example is changing
 ```js
 import Giscus from 'giscus/js';
 
-const giscus = new Giscus('your Giscus endpoint');
+const giscus = new Giscus();
 giscus.setTheme('dark');
 ```
 

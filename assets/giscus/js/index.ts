@@ -1,30 +1,26 @@
 class Giscus {
-    private endpoint = ''
-
-    constructor(endpoint: string) {
-        this.endpoint = endpoint.replace(/\/$/, '')
-    }
-
     setTheme(theme: string) {
-        const iframe = document.querySelector<HTMLIFrameElement>(
+        const frames = document.querySelectorAll<HTMLIFrameElement>(
             'iframe.giscus-frame'
         )
 
-        if (!iframe || !iframe.contentWindow) {
-            console.error('[giscus] iframe not found.')
-            return
-        }
+        frames.forEach((frame: HTMLIFrameElement) => {
+            if (!frame.contentWindow) {
+                return
+            }
 
-        iframe.contentWindow.postMessage(
-            {
-                giscus: {
-                    setConfig: {
-                        theme: `${this.endpoint}/themes/${theme}.css`,
+            const endpoint = (new URL(frame.src)).origin;
+            frame.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: `${endpoint}/themes/${theme}.css`,
+                        },
                     },
                 },
-            },
-            this.endpoint
-        );
+                endpoint
+            );
+        })
     }
 }
 
