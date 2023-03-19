@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>{{ .Title }}</title>
+    <style></style>
+    {{- $opts := dict
+      "params" (dict "endpoint" .Site.Params.giscus.endpoint)
+    -}}
+    {{- $js := resources.Get "js/giscus.ts" }}
+    {{- $js = $js | js.Build $opts }}
+    <script src="{{ $js.RelPermalink }}"></script>
+  </head>
+  <body>
+    <h1>
+      <a href="https://github.com/hugomods/giscus">{{ .Title }}</a>
+    </h1>
+    <p>Reading in:</p>
+    <ul>
+      {{- range .Translations }}
+        <li><a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+      {{- end }}
+    </ul>
+    <div>
+      {{ .Content }}
+    </div>
+    <div>
+      <p>Change theme on the fly.</p>
+      <select onchange="Giscus.setTheme(this.value)">
+        <option value="light">GitHub Light</option>
+        <option value="light_high_contrast">GitHub Light High Contrast</option>
+        <option value="light_protanopia">
+          GitHub Light Protanopia & Deuteranopia
+        </option>
+        <option value="light_tritanopia">GitHub Light Tritanopia</option>
+        <option value="dark">GitHub Dark</option>
+        <option value="dark_high_contrast">GitHub Dark High Contrast</option>
+        <option value="dark_protanopia">
+          GitHub Dark Protanopia & Deuteranopia
+        </option>
+        <option value="dark_tritanopia">GitHub Dark Tritanopia</option>
+        <option value="dark_dimmed">GitHub Dark Dimmed</option>
+        <option value="transparent_dark">Transparent Dark</option>
+        <option selected value="preferred_color_scheme">
+          Preferred Color Scheme
+        </option>
+      </select>
+    </div>
+    <h2>Comments</h2>
+    <hr />
+    <div class="giscus"></div>
+    <hr />
+    {{ partial "giscus/script-with-options" .Site.Params.blog.giscus }}
+  </body>
+</html>

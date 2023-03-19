@@ -1,0 +1,16 @@
+title = "Hugo Giscus Module"
+theme = ["github.com/hugomods/giscus"]
+[languages]
+[languages.en]
+weight = 1
+languageName = "English"
+[languages.zh-hans]
+weight = 2
+languageName = "简体中文"
+
+[params]
+[params.blog.giscus]
+repo = "hugomods/giscus"
+repo_id = "R_kgDOIHBHMw"
+category = "General"
+category_id = "DIC_kwDOIHBHM84CRvnM"

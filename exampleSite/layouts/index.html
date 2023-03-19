@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>{{ .Title }}</title>
+    <style></style>
+  </head>
+  <body>
+    <h1>
+      <a href="https://github.com/hugomods/giscus">{{ .Title }}</a>
+    </h1>
+    <ul>
+      {{- range .Site.RegularPages }}
+        <li>
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </li>
+      {{- end }}
+    </ul>
+  </body>
+</html>
