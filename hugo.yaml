@@ -4,7 +4,7 @@ module:
     min: 0.110.0
 
 params:
-  # The repoId and categoryId can be fetched on https://giscus.app/.
+  # The repo_id and category_id can be fetched on https://giscus.app/.
   giscus:
     # Client script endpoint.
     endpoint: https://giscus.app/
