@@ -24,7 +24,7 @@
     "zh-hant" "zh-TW"
   -}}
   {{- $langsMapping = merge $langsMapping (default .languages_mapping .languagesMapping) }}
-  {{- $lang := default $.Site.Language.Lang }}
+  {{- $lang := site.Language.Lang }}
   {{- with index $langsMapping $lang }}{{ $lang = . }}{{ end }}
   <script
     src="{{ .endpoint | strings.TrimSuffix "/" }}/client.js"
