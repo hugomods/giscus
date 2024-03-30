@@ -5,4 +5,4 @@
 [![License](https://img.shields.io/github/license/hugomods/giscus?style=flat-square)](https://github.com/hugomods/giscus/blob/main/LICENSE)
 [![Version](https://img.shields.io/github/v/tag/hugomods/giscus?label=version&style=flat-square)](https://github.com/hugomods/giscus/tags)
 
-This module add the [Giscus](https://giscus.app/) comments engine support for Hugo, please check out the [documentations](https://hugomods.com/en/docs/comment-engines/giscus/) for details.
+This module add the [Giscus](https://giscus.app/) comments engine support for Hugo, please check out the [documentation](https://hugomods.com/en/docs/comment-engines/giscus/) for details.
